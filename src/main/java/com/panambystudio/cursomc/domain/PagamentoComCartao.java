@@ -1,7 +1,10 @@
 package com.panambystudio.cursomc.domain;
 
+import javax.persistence.Entity;
+
 import com.panambystudio.cursomc.enums.EstadoPagamento;
 
+@Entity
 public class PagamentoComCartao extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	
