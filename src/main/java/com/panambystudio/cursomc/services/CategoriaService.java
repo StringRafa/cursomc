@@ -13,12 +13,15 @@ import com.panambystudio.cursomc.services.exceptions.ObjectNotFoundException;
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository repo;
+	private CategoriaRepository categoriaRepository;
 
 	public Categoria find(Integer id) {
-		Optional<Categoria> obj = repo.findById(id);
+		Optional<Categoria> obj = categoriaRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 
+	public Categoria insert(Categoria obj) {
+		return categoriaRepository.save(obj);
+	}
 }
