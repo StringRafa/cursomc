@@ -15,7 +15,6 @@ import com.panambystudio.cursomc.enums.EstadoPagamento;
 import com.panambystudio.cursomc.repositories.ItemPedidoRepository;
 import com.panambystudio.cursomc.repositories.PagamentoRepository;
 import com.panambystudio.cursomc.repositories.PedidoRepository;
-import com.panambystudio.cursomc.repositories.ProdutoRepository;
 import com.panambystudio.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service

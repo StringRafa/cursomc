@@ -34,6 +34,6 @@ public class PedidoResource {
 		obj = pedidoService.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.ok().build();
+		return ResponseEntity.created(uri).build();
 	}
 }
