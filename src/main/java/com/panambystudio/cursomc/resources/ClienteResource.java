@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.panambystudio.cursomc.domain.Categoria;
 import com.panambystudio.cursomc.domain.Cliente;
-import com.panambystudio.cursomc.dto.CategoriaDTO;
 import com.panambystudio.cursomc.dto.ClienteDTO;
 import com.panambystudio.cursomc.dto.ClienteNewDTO;
 import com.panambystudio.cursomc.services.ClienteService;
