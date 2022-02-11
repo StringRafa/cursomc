@@ -20,6 +20,7 @@ import com.panambystudio.cursomc.domain.PagamentoComCartao;
 import com.panambystudio.cursomc.domain.Pedido;
 import com.panambystudio.cursomc.domain.Produto;
 import com.panambystudio.cursomc.enums.EstadoPagamento;
+import com.panambystudio.cursomc.enums.Perfil;
 import com.panambystudio.cursomc.enums.TipoCliente;
 import com.panambystudio.cursomc.repositories.CategoriaRepository;
 import com.panambystudio.cursomc.repositories.CidadeRepository;
@@ -122,18 +123,25 @@ public class DBService {
 		estadoRepository.saveAll(Arrays.asList(est1, est2));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 
-		Cliente cli1 = new Cliente(null, "Rafael José de Souza", "rafa.jo.souza@hotmail.com", "36378912377",
+		Cliente cli1 = new Cliente(null, "Rafael José de Souza", "rafa.jo.souza@hotmail.com", "24689207089",
 				TipoCliente.PESSOAFISICA, pe.encode("123"));
+		cli1.addPerfil(Perfil.ADMIN);
+		cli1.getTelefones().addAll(Arrays.asList("01127363323", "01193838393"));
+		
+		Cliente cli2 = new Cliente(null, "Ana Costa", "rafa.jo.souza@gmail.com", "41462651003",
+				TipoCliente.PESSOAFISICA, pe.encode("123"));
+		cli2.getTelefones().addAll(Arrays.asList("01129256894", "011989632514"));
 
-		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
-
-		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 203", "Jardim", "38220834", cli1, c1);
-		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, c2);
+		Endereco e1 = new Endereco(null, "Rua João Portes Del Rei", "300", "Apto 203", "Jardim Fanganiello", "08450520", cli1, c1);
+		Endereco e2 = new Endereco(null, "Rua Tacacá", "105", "Sala 800", "Jardim Jaraguá (Itaim Paulista)", "08160195", cli1, c2);
+		
+		Endereco e3 = new Endereco(null, "Rua Valentim Lemos", "2106", null, "Jardim São Paulo(Zona Leste)", "08430800", cli2, c2);
 
 		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
+		cli2.getEnderecos().addAll(Arrays.asList(e3));
 
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		enderecoRepository.saveAll(Arrays.asList(e1, e2));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2));
+		enderecoRepository.saveAll(Arrays.asList(e1, e2, e3));
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
