@@ -18,9 +18,12 @@ import com.panambystudio.cursomc.domain.Cliente;
 import com.panambystudio.cursomc.domain.Endereco;
 import com.panambystudio.cursomc.dto.ClienteDTO;
 import com.panambystudio.cursomc.dto.ClienteNewDTO;
+import com.panambystudio.cursomc.enums.Perfil;
 import com.panambystudio.cursomc.enums.TipoCliente;
 import com.panambystudio.cursomc.repositories.ClienteRepository;
 import com.panambystudio.cursomc.repositories.EnderecoRepository;
+import com.panambystudio.cursomc.security.UserSS;
+import com.panambystudio.cursomc.services.exceptions.AuthorizationException;
 import com.panambystudio.cursomc.services.exceptions.DataIntegrityException;
 import com.panambystudio.cursomc.services.exceptions.ObjectNotFoundException;
 
@@ -37,6 +40,12 @@ public class ClienteService {
 	private EnderecoRepository enderecoRepository;
 	
 	public Cliente find(Integer id) {
+		
+		UserSS user = UserService.authenticated();
+		if (user == null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
 		Optional<Cliente> obj = clienteRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
