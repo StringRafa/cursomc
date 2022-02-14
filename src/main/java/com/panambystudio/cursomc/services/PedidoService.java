@@ -49,6 +49,11 @@ public class PedidoService {
 	
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = pedidoRepository.findById(id);
+		UserSS user = UserService.authenticated();
+		Cliente cliente = clienteService.find(user.getId());
+		if (!cliente.getId().equals(pedidoRepository.findById(id).get().getCliente().getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: "
 				+ Pedido.class.getName()));
