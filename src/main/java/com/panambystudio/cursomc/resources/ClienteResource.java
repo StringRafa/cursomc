@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.panambystudio.cursomc.domain.Cliente;
 import com.panambystudio.cursomc.dto.ClienteDTO;
 import com.panambystudio.cursomc.dto.ClienteNewDTO;
+import com.panambystudio.cursomc.repositories.ClienteRepository;
 import com.panambystudio.cursomc.services.ClienteService;
 
 @RestController
@@ -34,6 +35,12 @@ public class ClienteResource {
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Cliente> find(@PathVariable Integer id){
 		Cliente obj = clienteService.find(id);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@RequestMapping(value = "/email", method = RequestMethod.GET)
+	public ResponseEntity<Cliente> find(@RequestParam(value = "value") String email){
+		Cliente obj = clienteService.findByEmail(email);
 		return ResponseEntity.ok().body(obj);
 	}
 	
