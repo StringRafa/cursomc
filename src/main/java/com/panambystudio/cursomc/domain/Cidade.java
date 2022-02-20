@@ -31,7 +31,6 @@ public class Cidade implements Serializable {
 		this.id = id;
 		this.nome = nome;
 		this.estado = estado;
-		;
 	}
 
 	public Integer getId() {
