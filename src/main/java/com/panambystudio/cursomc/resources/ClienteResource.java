@@ -22,7 +22,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.panambystudio.cursomc.domain.Cliente;
 import com.panambystudio.cursomc.dto.ClienteDTO;
 import com.panambystudio.cursomc.dto.ClienteNewDTO;
-import com.panambystudio.cursomc.repositories.ClienteRepository;
 import com.panambystudio.cursomc.services.ClienteService;
 
 @RestController
