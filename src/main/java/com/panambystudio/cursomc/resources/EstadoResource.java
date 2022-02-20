@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.panambystudio.cursomc.domain.Cidade;
 import com.panambystudio.cursomc.domain.Estado;
+import com.panambystudio.cursomc.dto.CidadeDTO;
 import com.panambystudio.cursomc.dto.EstadoDTO;
+import com.panambystudio.cursomc.services.CidadeService;
 import com.panambystudio.cursomc.services.EstadoService;
 
 @RestController
@@ -21,6 +24,9 @@ public class EstadoResource {
 
 	@Autowired
 	private EstadoService estadoService ;
+	
+	@Autowired
+	private CidadeService cidadeService;
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Estado> find(@PathVariable Integer id){
@@ -36,4 +42,10 @@ public class EstadoResource {
 		return ResponseEntity.ok().body(listDto);
 	}
 	
+	@RequestMapping(value="/{id}/cidades", method = RequestMethod.GET)
+	public ResponseEntity<List<CidadeDTO>> findAllCidades(@PathVariable Estado id){
+		List<Cidade> list = cidadeService.find(id);
+		List<CidadeDTO> listDto = list.stream().map(obj -> new CidadeDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDto);
+	}
 }
