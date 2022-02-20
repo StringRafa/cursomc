@@ -34,7 +34,6 @@ public class EstadoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<EstadoDTO>> findAll(){
 		List<Estado> list = estadoService.findAll();
