@@ -21,7 +21,10 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Pedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -63,46 +66,6 @@ public class Pedido implements Serializable {
 			soma = soma + ip.getSubTotal();
 		}
 		return soma;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Date getInstante() {
-		return instante;
-	}
-
-	public void setInstante(Date instante) {
-		this.instante = instante;
-	}
-
-	public Pagamento getPagamento() {
-		return pagamento;
-	}
-
-	public void setPagamento(Pagamento pagamento) {
-		this.pagamento = pagamento;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Endereco getEnderecoDeEntrega() {
-		return enderecoDeEntrega;
-	}
-
-	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
-		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
 
 	public Set<ItemPedido> getItens() {

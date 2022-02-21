@@ -1,7 +1,6 @@
 package com.panambystudio.cursomc.domain;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,7 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.panambystudio.cursomc.enums.EstadoPagamento;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public abstract class Pagamento implements Serializable{
@@ -30,23 +34,12 @@ public abstract class Pagamento implements Serializable{
 	@JoinColumn(name="pedido_id")
 	@MapsId
 	private Pedido pedido;
-	
-	public Pagamento() {
-	}
 
 	public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
 		super();
 		this.id = id;
 		this.estado = (estado==null) ? null : estado.getCod();
 		this.pedido = pedido;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public EstadoPagamento getEstado() {
@@ -57,29 +50,4 @@ public abstract class Pagamento implements Serializable{
 		this.estado = estado.getCod();
 	}
 
-	public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pagamento other = (Pagamento) obj;
-		return Objects.equals(id, other.id);
-	}
-	
 }

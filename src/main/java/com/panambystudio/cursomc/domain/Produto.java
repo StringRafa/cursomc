@@ -18,7 +18,12 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@NoArgsConstructor
 public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -39,9 +44,6 @@ public class Produto implements Serializable {
 	@OneToMany(mappedBy = "id.produto")
 	private Set<ItemPedido> itens = new HashSet<>();
 
-	public Produto() {
-	}
-
 	public Produto(Integer id, String name, Double preco) {
 		super();
 		this.id = id;
@@ -56,38 +58,6 @@ public class Produto implements Serializable {
 			lista.add(pedido.getPedido());
 		}
 		return lista;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
-
-	public List<Categoria> getCategorias() {
-		return categorias;
-	}
-
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
 	}
 
 	public Set<ItemPedido> getItens() {

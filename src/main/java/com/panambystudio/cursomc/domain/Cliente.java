@@ -22,14 +22,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.panambystudio.cursomc.enums.Perfil;
 import com.panambystudio.cursomc.enums.TipoCliente;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
