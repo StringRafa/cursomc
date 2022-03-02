@@ -67,31 +67,31 @@ public class DBService {
 
 	public void instantiateTestDatabase() throws ParseException {
 
-		Categoria cat1 = new Categoria(null, "Informática");
-		Categoria cat2 = new Categoria(null, "Escritório");
-		Categoria cat3 = new Categoria(null, "Cama mesa e banho");
-		Categoria cat4 = new Categoria(null, "Eletrônicos");
-		Categoria cat5 = new Categoria(null, "Jardinagem");
-		Categoria cat6 = new Categoria(null, "Decoração");
-		Categoria cat7 = new Categoria(null, "Perfumaria");
+		Categoria cat1 = new Categoria(null, "Barbeadores");
+		Categoria cat2 = new Categoria(null, "Bálsamo, Óleos e Tônicos");
+		Categoria cat3 = new Categoria(null, "Lâminas de Barbear");
+		Categoria cat4 = new Categoria(null, "Kits de Barbear");
+		Categoria cat5 = new Categoria(null, "Espumas de Babear");
+		Categoria cat6 = new Categoria(null, "Produtos Pós Barbear");
+		Categoria cat7 = new Categoria(null, "Pentes Alinhadores de Barba");
 
-		Produto p1 = new Produto(null, "Computador", 2000.00);
-		Produto p2 = new Produto(null, "Impressora", 800.00);
-		Produto p3 = new Produto(null, "Mouse", 80.00);
-		Produto p4 = new Produto(null, "Mesa de escritório", 300.00);
-		Produto p5 = new Produto(null, "Toalha", 50.00);
-		Produto p6 = new Produto(null, "Colcha", 200.00);
-		Produto p7 = new Produto(null, "TV true color", 2800.00);
-		Produto p8 = new Produto(null, "Roçadeira", 800.00);
-		Produto p9 = new Produto(null, "Abajur", 100.00);
-		Produto p10 = new Produto(null, "Pendente", 180.00);
-		Produto p11 = new Produto(null, "Shampoo", 90.00);
-		Produto p12 = new Produto(null, "Produto 12", 10.00);
-		Produto p13 = new Produto(null, "Produto 13", 10.00);
-		Produto p14 = new Produto(null, "Produto 14", 10.00);
-		Produto p15 = new Produto(null, "Produto 15", 10.00);
-		Produto p16 = new Produto(null, "Produto 16", 10.00);
-		Produto p17 = new Produto(null, "Produto 17", 10.00);
+		Produto p1 = new Produto(null, "Aparelho para Barbear Sensecare Gillette Leve 4 Pague 3", 19.99);
+		Produto p2 = new Produto(null, "Barbeador Gillette Mach3 Acqua-Grip", 14.99);
+		Produto p3 = new Produto(null, "Barbeador Elétrico De Cabelo Vintage Dourado Oferta", 109.99);
+		Produto p4 = new Produto(null, "Felpsmen Balm Bomba De Crescimento Barba E Cabelo Poker 240g", 59.99);
+		Produto p5 = new Produto(null, "Kit Com 2 Lâminas De Barbear Philips Oneblade", 149.99);
+		Produto p6 = new Produto(null, "Lâmina Wilkinson Barbear Aço 1 Cartela=60unidades", 29.99);
+		Produto p7 = new Produto(null, "Kit Barba Vintage Retrô Barbearia Navalha Pincel Banheiro", 59.99);
+		Produto p8 = new Produto(null, "Kit Para Barba Cabelo E Bigode + Brinde For Man Barba Home", 39.99);
+		Produto p9 = new Produto(null, "Kit Para Barba Shampoo Balm Óleo Pomada, Colônia Perfume", 79.99);
+		Produto p10 = new Produto(null, "Shaving Shave Shavim Refrescante Com Creme Incolor 500g Fox", 49.99);
+		Produto p11 = new Produto(null, "Bálsamo Creme Pós-barba Bozzano Hidratação 100g", 19.99);
+		Produto p12 = new Produto(null, "Barbeador Philips OneBlade QP2510 verde-lima e cinza-marengo 100V/240V", 129.99);
+		Produto p13 = new Produto(null, "Barbeador Philips AquaTouch 1000 S1121 azul-malibú 100V/240V", 169.99);
+		Produto p14 = new Produto(null, "Bálsamo Danger Barba Forte Óleo Hidratante Beard Balm - 170g", 29.99);
+		Produto p15 = new Produto(null, "Óleo Para Barba Danger - Barba Forte - 30ml", 31.99);
+		Produto p16 = new Produto(null, "Pente Barba Régua Modelador Alinhador Novo Formato", 24.99);
+		Produto p17 = new Produto(null, "Molde Para Barba Pente Modelador Régua Aparador Bigode", 15.99);
 		Produto p18 = new Produto(null, "Produto 18", 10.00);
 		Produto p19 = new Produto(null, "Produto 19", 10.00);
 		Produto p20 = new Produto(null, "Produto 20", 10.00);
@@ -126,33 +126,33 @@ public class DBService {
 		Produto p49 = new Produto(null, "Produto 49", 10.00);
 		Produto p50 = new Produto(null, "Produto 50", 10.00);
 
-		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3, p12, p13, p14, p15, p16, p17, p18, p19, p20, 
+		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3, p12, p13, p18, p19, p20, 
 				p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, 
 				p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
-		cat2.getProdutos().addAll(Arrays.asList(p2, p4));
+		cat2.getProdutos().addAll(Arrays.asList(p4, p14, p15));
 		cat3.getProdutos().addAll(Arrays.asList(p5, p6));
-		cat4.getProdutos().addAll(Arrays.asList(p1, p2, p3, p7));
-		cat5.getProdutos().addAll(Arrays.asList(p8));
-		cat6.getProdutos().addAll(Arrays.asList(p9, p10));
-		cat7.getProdutos().addAll(Arrays.asList(p11));
+		cat4.getProdutos().addAll(Arrays.asList(p7, p8, p9));
+		cat5.getProdutos().addAll(Arrays.asList(p10));
+		cat6.getProdutos().addAll(Arrays.asList(p11));
+		cat7.getProdutos().addAll(Arrays.asList(p16, p17));
 
 		p1.getCategorias().addAll(Arrays.asList(cat1));
-		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
-		p3.getCategorias().addAll(Arrays.asList(cat1, cat4));
+		p2.getCategorias().addAll(Arrays.asList(cat1));
+		p3.getCategorias().addAll(Arrays.asList(cat1));
 		p4.getCategorias().addAll(Arrays.asList(cat2));
 		p5.getCategorias().addAll(Arrays.asList(cat3));
 		p6.getCategorias().addAll(Arrays.asList(cat3));
 		p7.getCategorias().addAll(Arrays.asList(cat4));
-		p8.getCategorias().addAll(Arrays.asList(cat5));
-		p9.getCategorias().addAll(Arrays.asList(cat6));
-		p10.getCategorias().addAll(Arrays.asList(cat6));
-		p11.getCategorias().addAll(Arrays.asList(cat7));
+		p8.getCategorias().addAll(Arrays.asList(cat4));
+		p9.getCategorias().addAll(Arrays.asList(cat4));
+		p10.getCategorias().addAll(Arrays.asList(cat5));
+		p11.getCategorias().addAll(Arrays.asList(cat6));
 		p12.getCategorias().add(cat1);
 		p13.getCategorias().add(cat1);
-		p14.getCategorias().add(cat1);
-		p15.getCategorias().add(cat1);
-		p16.getCategorias().add(cat1);
-		p17.getCategorias().add(cat1);
+		p14.getCategorias().add(cat2);
+		p15.getCategorias().add(cat2);
+		p16.getCategorias().add(cat7);
+		p17.getCategorias().add(cat7);
 		p18.getCategorias().add(cat1);
 		p19.getCategorias().add(cat1);
 		p20.getCategorias().add(cat1);
